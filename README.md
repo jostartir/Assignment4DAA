@@ -1,7 +1,9 @@
 # Assignment 4. Patient Zero
 
 Student ID:250593
+
 Name:Alisher Kairov
+
 Group: SE-2519
 
 
@@ -25,21 +27,23 @@ My outbreak report (a screenshot of `output/outbreak.html`):
 
 ## Questions
 
-Mission 1. What does the cell d[i][j] of your table mean, and how is it computed from other cells?
+**Mission 1.** What does the cell d[i][j] of your table mean, and how is it computed from other cells?
 
 d[i][j] is the minimum number of changes needed to change the first i letters of A into the first j letters of B. We calculate it using the cells above, left, and diagonal. These cells mean delete, insert, or replace a letter.
 
-Mission 2. How is the longest common subsequence different from the longest common substring? My Shared core is bigger than the number of letters that are the same at the same place: why?
+**Mission 2.** How is the longest common subsequence different from the longest common substring? My Shared core is bigger than the number of letters that are the same at the same place: why?
 
 A subsequence keeps the same order, but its letters do not need to be next to each other. A substring is continuous. The Shared core can be longer than the number of letters in the same positions because letters can match at different positions in the two strains.
 
-Mission 3. What does the prefix function tell you, and why does the pointer in the text never go back in KMP? What is the Border length of my marker and what does it mean?
+**Mission 3**. What does the prefix function tell you, and why does the pointer in the text never go back in KMP? What is the Border length of my marker and what does it mean?
 
 The prefix function shows the length of the longest proper prefix that is also a suffix for each part of the marker. In KMP, the text pointer never goes back because the prefix function tells us where to continue in the marker after a mismatch. The Border length is the last value of the prefix function. It tells me the length of the longest proper prefix of my marker that is also its suffix.
 
-Mission 4. Why must you compare the letters after the hashes are equal? What happens to the cost of Rabin-Karp if many windows have the same hash?
+**Mission 4.** Why must you compare the letters after the hashes are equal? What happens to the cost of Rabin-Karp if many windows have the same hash?
 
-Mission 5. What are the two states of a person in your DP, and how do you get the answer for a person from its children? Why does a greedy "test the person with most links first" not always give the cheapest answer?
+We must compare the letters because different words can have the same hash. If many windows have the same hash, we must compare more letters, so Rabin-Karp becomes slower. In the worst case, its time can be O(nk).
+
+**Mission 5.** What are the two states of a person in your DP, and how do you get the answer for a person from its children? Why does a greedy "test the person with most links first" not always give the cheapest answer?
 
 ## AI use
 
