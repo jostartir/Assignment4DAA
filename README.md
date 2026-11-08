@@ -31,7 +31,11 @@ d[i][j] is the minimum number of changes needed to change the first i letters of
 
 Mission 2. How is the longest common subsequence different from the longest common substring? My Shared core is bigger than the number of letters that are the same at the same place: why?
 
+A subsequence keeps the same order, but its letters do not need to be next to each other. A substring is continuous. The Shared core can be longer than the number of letters in the same positions because letters can match at different positions in the two strains.
+
 Mission 3. What does the prefix function tell you, and why does the pointer in the text never go back in KMP? What is the Border length of my marker and what does it mean?
+
+The prefix function shows the length of the longest proper prefix that is also a suffix for each part of the marker. In KMP, the text pointer never goes back because the prefix function tells us where to continue in the marker after a mismatch. The Border length is the last value of the prefix function. It tells me the length of the longest proper prefix of my marker that is also its suffix.
 
 Mission 4. Why must you compare the letters after the hashes are equal? What happens to the cost of Rabin-Karp if many windows have the same hash?
 
