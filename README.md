@@ -9,8 +9,6 @@ Group: SE-2519
 
 ## Program output
 
-The 9 lines your program prints on your data (`java -cp out Main`):
-
     Mutations: 66
     Shared core: 1118
     Marker hits: 5
@@ -55,13 +53,13 @@ none
 
 Milliseconds, average of 3 runs, from `java -cp out Bench`.
 
-| test | size | time |
-|---|---|---|
-| naive search | 20 000 / 40 000 / 80 000 | |
-| KMP | 20 000 / 40 000 / 80 000 | |
-| edit distance | 500 / 1000 / 2000 / 4000 | |
+| test | size | time                   |
+|---|---|------------------------|
+| naive search | 20 000 / 40 000 / 80 000 | 67,4 /  109,0 /  203,3 |
+| KMP | 20 000 / 40 000 / 80 000 | 1,8 / 1,6 / 0,4        |
+| edit distance | 500 / 1000 / 2000 / 4000 | 5,4 / 7,0 / 18,2 / 70,1    |
 
-What do the numbers say about how the time grows? When you double the size, by how much does each time grow? Two or three sentences.
+The naive search takes about twice as long when the text size doubles. KMP stays very fast, and the small differences are probably measurement noise. When the strain length doubles, edit distance takes about four times longer for the larger sizes.
 
 ## Complexity
 
@@ -69,16 +67,10 @@ n is the length of the text (or of a strain), m the length of the pattern, k the
 
 | algorithm | time | space | assumptions |
 |---|---|---|---|
-| Edit distance | | | |
-| LCS | | | |
-| Prefix function and KMP | | | |
-| Rabin-Karp (shared words) | | | |
-| Tree DP | | | |
+| Edit distance |	O(nm) |	O(nm) |	n and m are the lengths of the two strains |
+| LCS |	O(nm) | O(nm)|	n and m are the lengths of the two strains |
+| Prefix function and KMP |O(n + m) |O(n + m) | 	n is the text length, m is the marker length|
+| Rabin-Karp (shared words) |O(nmk) worst case|O(m) | 	n and m are the lengths of strains A and B; k is the window length. Hash collisions may require letter comparisons.|
+| Tree DP | O(v)|	O(v) |v is the number of people in the tree |
 
-## Before you submit
 
-- The four files in `data` and the screenshot `output/outbreak.png` are in the repository.
-- `java tools/Check.java` shows all examples right.
-- This README is filled in, the program output and the section AI use included.
-- The work is pushed to main (at least one commit per mission) and the repository is public.
-- The link is attached in Moodle.
