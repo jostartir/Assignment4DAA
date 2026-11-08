@@ -11,15 +11,15 @@ Group: SE-2519
 
 The 9 lines your program prints on your data (`java -cp out Main`):
 
-    Mutations:
-    Shared core:
-    Marker hits:
-    First hit:
-    Border length:
-    Shared words:
-    Tests needed:
-    Cheapest testing:
-    Longest chain:
+    Mutations: 66
+    Shared core: 1118
+    Marker hits: 5
+    First hit: 10783
+    Border length: 4
+    Shared words: 594
+    Tests needed: 44
+    Cheapest testing: 209
+    Longest chain: 35
 
 My outbreak report (a screenshot of `output/outbreak.html`):
 
@@ -44,6 +44,8 @@ The prefix function shows the length of the longest proper prefix that is also a
 We must compare the letters because different words can have the same hash. If many windows have the same hash, we must compare more letters, so Rabin-Karp becomes slower. In the worst case, its time can be O(nk).
 
 **Mission 5.** What are the two states of a person in your DP, and how do you get the answer for a person from its children? Why does a greedy "test the person with most links first" not always give the cheapest answer?
+
+For each person, the DP has two states: tested and not tested. If a person is tested, each child can be tested or not; if the person is not tested, every child must be tested. A greedy choice may cost more because testing one person can be more expensive than testing several connected people.
 
 ## AI use
 
